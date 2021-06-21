@@ -1,4 +1,6 @@
+/__sapper__/
 /node_modules/
+/src/node_modules/
 /dist/
 /.vscode/
 .DS_Store

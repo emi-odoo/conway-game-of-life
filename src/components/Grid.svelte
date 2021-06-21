@@ -86,8 +86,10 @@
       drawing = false;
     }
     if (drawing) {
-      let column = Math.floor(event.layerX / 10);
-      let row = Math.floor(event.layerY / 10);
+      let column = Math.floor(
+        (event.pageX - canvas.offsetLeft - canvas.clientLeft) / 10
+      );
+      let row = Math.floor((event.pageY - canvas.offsetTop - canvas.clientTop) / 10);
       aliveCells.add(row * dimension + column);
     }
     aliveCells = new Set(aliveCells);
@@ -123,6 +125,9 @@
     aliveCells = update_alive_cells(aliveCells, near_cells);
     render_cells();
   };
+  const big_click = (event) => {
+    console.log(event);
+  };
 </script>
 
 <h1>Conway Game of Life</h1>
@@ -140,5 +145,6 @@
     on:mousedown={click}
     on:mousemove={click}
     on:mouseup={click}
+    on:click={big_click}
   />
 </div>

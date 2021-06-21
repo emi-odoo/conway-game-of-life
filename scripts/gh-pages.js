@@ -1,12 +1,12 @@
-var ghpages = require('gh-pages');
+const ghpages = require('gh-pages');
 
 ghpages.publish(
-    'public',
+    '__sapper__/export/conway-game-of-life',
     {
         branch: 'gh-pages',
         repo: 'https://github.com/uovodikiwi/conway-game-of-life.git',
         user: {
-            name: 'Emanuele Maruzzi (uovodikiwi)',
+            name: 'uovodikiwi',
             email: 'emanuele.maruzzi@gmail.com'
         }
     },
