@@ -1,6 +1,7 @@
 let canvas = document.getElementById("canvas");
 let button_stop = document.getElementById("stop_button");
 let clear_button = document.getElementById("clear_button");
+let random_button = document.getElementById("random_button");
 let context = canvas.getContext("2d");
 
 let dimension = 100;
@@ -104,6 +105,13 @@ const clear = () => {
   aliveCells = new Set();
   render_cells();
 };
+const random_cells = () => {
+  aliveCells = new Set();
+  for (let i =0;i< dimension * dimension / 3; i++){
+    aliveCells.add(Math.floor(Math.random()*dimension*dimension))
+  }
+  render_cells();
+};
 const render_cells = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillStyle = "#00FF00";
@@ -129,3 +137,4 @@ canvas.addEventListener("mousemove", click);
 canvas.addEventListener("mouseup", click);
 stop_button.addEventListener("mousedown", stop);
 clear_button.addEventListener("mousedown", clear);
+random_button.addEventListener("mousedown", random_cells);
